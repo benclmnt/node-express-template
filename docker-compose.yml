@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  exhibitor-portal:
+    build: .
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3010:3010'
+    environment:
+      - PORT=3010
+      - MOUNT_PATH=
+      # FOR MOUNT_PATH, leave it blank if it is mounted on hostname. i.e http://localhost:3000/,
+      # else if it is mounted on http://localhost:3000/some-path, key in MOUNT_PATH=/some-path
+      - GEVME_HOSTNAME=https://www.gevme.com
+      - GEVME_API_URL=https://www.gevme.com/apiv2/api
+      - GEVME_API_CLIENT_ID="a-2-tuOtdbfQLkgf"
+      - GEVME_API_CLIENT_SECRET=RIacsYen2YYg5bR2dwE3lwf2eLsmxUl641sox9Xt
+      - CACHE_TTL= # default 5 min. To flush, GET mountPath + /flush

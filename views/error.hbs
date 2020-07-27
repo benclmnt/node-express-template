@@ -1,0 +1,6 @@
+<h1>{{ status }}</h1>
+<p>{{ message }}</p>
+<p>{{ stack }}</p>
+{{#ifCond status "<" 500}}
+<a class="btn btn-secondary ml-3" href="{{ baseUrl }}/logout">Logout</a>
+{{/ifCond}}
